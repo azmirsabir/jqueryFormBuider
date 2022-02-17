@@ -31,11 +31,11 @@ This enables anyone to take their complicated or time-consuming processes, and m
                                 "value": "Zizo",
                                 "class": "form-control",
                                 "required": true,
-                                "readonly": true,
+                                "readonly":false
                             }
                         },
                         {
-                            "title": 'date',
+                            "title": 'datetime',
                             "col_size": 4,
                             'message': "we\'ll never share your nme with anyone.",
                             "group": "requester",
@@ -57,6 +57,31 @@ This enables anyone to take their complicated or time-consuming processes, and m
                                 'placeholder': "password",
                                 "value": "Zizo",
                                 "class": "form-control"
+                            }
+                        },
+                        {
+                            "title": 'file upload',
+                            "col_size": 4,
+                            "group": "requester",
+                            "attrs": {
+                                "type": 'file',
+                                "name": 'file',
+                                "value": "File upload",
+                                "class": "form-control-file",
+                                "required":true,
+                            }
+                        },
+                        {
+                            "title": 'TextArea',
+                            "col_size": 4,
+                            "group": "requester",
+                            "attrs": {
+                                "type": 'textarea',
+                                "name": 'Description',
+                                'placeholder': "Description",
+                                "class": "form-control",
+                                "text":"This is Description",
+                                "required":true
                             }
                         },
                         {
