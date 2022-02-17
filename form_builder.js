@@ -48,23 +48,30 @@
     function generate_form_inputs(input){
         let inputs=""
         switch (input.attrs.type){
-            case "select": inputs +=generate_select(input)
-                break;
-            case "text": case "password": case "date" :case "datetime-local" : inputs +=generate_text_input(input)
-                break;
-            case "table": inputs +=generate_table(input)
-            break;
-            case "multiple_input": inputs +=generate_multi_input(input)
-            break;
-            case "custom": inputs=input.attrs.html;
-                break;
-            case "checkbox": inputs +=generate_checkbox(input);
-                break;
-            case "radio": inputs +=generate_radio_group(input);
-                break;
+            case "select": inputs +=generate_select(input);break;
+            case "text": case "password": case "date" :case "datetime-local" :case "file" : inputs +=generate_text_input(input);break;
+            case "table": inputs +=generate_table(input);break;
+            case "multiple_input": inputs +=generate_multi_input(input); break;
+            case "custom": inputs=input.attrs.html;break;
+            case "checkbox": inputs +=generate_checkbox(input);break;
+            case "radio": inputs +=generate_radio_group(input);break;
+            case "textarea": inputs +=generate_textarea(input);break;
         }
-
         return inputs;
+    }
+
+    function generate_textarea(input){
+        const input_size=input.col_size?input.col_size:12;
+        const title=input.title?input.title:"No title";
+        const input_title=input.attrs.required?'<span>'+title+'<span class="text-danger">  * </span></span>':'<span>'+title+'</span>';
+        const small_message=input.message?'<small class="form-text text-muted">'+input.message+'</small>':"";
+        const text=input.attrs.text? input.attrs.text :"";
+
+        return '<div class="modal-body col-'+input_size+' my-1">\n' +
+            input_title+
+            '       <textarea ' + generate_attrs(input.attrs) + ' />'+text+'</textarea>\n' +
+            small_message+
+            '   </div>';
     }
     function generate_checkbox(input){
         const input_size=input.col_size?input.col_size:12;
@@ -170,18 +177,20 @@
     }
     function generate_attrs(input){
         const multiple=input.multiple?" multiple ":"";
-        // const required=input.required?" required ":"";
-        // const readonly=input.readonly?" readonly ":"";
+        const required=input.required?" required ":"";
+        const readonly=input.readonly?" readonly ":"";
 
-        // const res=multiple+required+readonly;
+        const res=multiple+" " +readonly+" "+required;
 
         let input_attrs = Object.keys(input).reduce(function (previous, key) {
-            previous += ' ' + key + '= \"' + input[key] + "\"";
+            if(key!=='multiple' && key!=='required' && key!=='readonly') {
+                previous += ' ' + key + '= \"' + input[key] + "\"";
+            }
             return previous;
 
         }, '');
 
-        return input_attrs+multiple;
+        return input_attrs+res;
     }
 
 }(jQuery));
