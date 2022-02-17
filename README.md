@@ -183,7 +183,7 @@ Insert gif or link to demo
 
 ## Screenshots
 
-![App Screenshot](https://ibb.co/MPfmCkN)
+![App Screenshot](https://serving.photos.photobox.com/359075380a330024181a156e2b6b0431f3aae3a6d6afd0cfb7531e9a1250984f08761e8c.jpg)
 
 
 ## License
