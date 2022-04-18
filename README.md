@@ -209,7 +209,7 @@ Insert gif or link to demo
 ## Screenshots
 
 ![App Screenshot](https://serving.photos.photobox.com/359075380a330024181a156e2b6b0431f3aae3a6d6afd0cfb7531e9a1250984f08761e8c.jpg)
-
+![Dynamic input](![image](https://user-images.githubusercontent.com/33178745/163769764-81cbb20a-f297-4141-9955-c1426fb6451e.png))
 
 ## License
 
